@@ -21,7 +21,6 @@ class LinkedList {
             counter++;
             node = node.next;
         }
-        console.log("size" + counter);
     }
     // Insert Node at end position
     insertEnd(data) {
@@ -45,9 +44,26 @@ class LinkedList {
             this.head = newNode;
             return;
         }
-        const previous = list.getAt(index -1);
+        const previous = list.getAt(index -1) || list.getLast();
         let node = new Node(data, previous.next);
         previous.next = node;
+    }
+    // romove Node at Random Position
+    removeNodeAt(index) {
+        if(!this.head) {
+            return;
+        }
+        if(index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        const previous = list.getAt(index - 1);
+        if(!previous || !previous.next) {
+            return;
+        }
+        previous.next = previous.next.next;
+        
     }
     // clear linked list
     clearList() {
@@ -96,7 +112,6 @@ class LinkedList {
         let counter = 0;
         while(node) {
             if(index === counter) {
-                console.log("Index Node"  + node);
                 return node;
             }
             counter = counter + 1;
@@ -115,6 +130,6 @@ list.insertEnd(20);
 // list.removeLastNode();
 list.getAt(12);
 list.InsertNodeAt(3,45)
+list.removeNodeAt(2);
 // list.clearList();
-
 console.log(list);
