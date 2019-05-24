@@ -41,10 +41,13 @@ class LinkedList {
             return new Node(data, null);
         }
         if(index === 0) {
-            newNode 
-            this.head = new Node(data, null);
+           let newNode = new Node(data, this.head);
+            this.head = newNode;
+            return;
         }
-        list.getAt(index);
+        const previous = list.getAt(index -1);
+        let node = new Node(data, previous.next);
+        previous.next = node;
     }
     // clear linked list
     clearList() {
