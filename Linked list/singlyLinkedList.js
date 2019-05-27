@@ -119,6 +119,20 @@ class LinkedList {
         }
         return null;
     }
+
+    // Reverse Linked List
+    reverseLinkedList() {
+        let node = this.head;
+        let previous;
+        let temp;
+        while(node) {
+            temp = node.next;
+            node.next = previous;
+            previous = node;
+            node = temp;
+        }
+       return previous;
+    }
 }
 const nodeOne = new Node(5, null)
 const list = new LinkedList();
@@ -130,6 +144,6 @@ list.insertEnd(20);
 // list.removeLastNode();
 list.getAt(12);
 list.InsertNodeAt(3,45)
-list.removeNodeAt(2);
+//list.removeNodeAt(2);
+list.reverseLinkedList();
 // list.clearList();
-console.log(list);
