@@ -133,6 +133,23 @@ class LinkedList {
         }
        return previous;
     }
+
+    findMiddleNode() {
+        let counter = 1;
+        let node = this.head;
+        if(!node) {
+            return;
+        }
+        while(node.next !== null) {
+            counter++;
+            node = node.next;
+        }
+        let centerpoint = Math.round(counter/2);
+        let currentNode = list.getAt(centerpoint);
+        console.log(currentNode);
+        return currentNode;
+    }
+
 }
 const nodeOne = new Node(5, null)
 const list = new LinkedList();
@@ -140,10 +157,12 @@ list.head = nodeOne;
 list.sizeOfList();
 list.insertFirst(15);
 list.insertEnd(20);
+list.insertEnd(29);
 // list.removeFirstNode();
 // list.removeLastNode();
 list.getAt(12);
 list.InsertNodeAt(3,45)
 //list.removeNodeAt(2);
-list.reverseLinkedList();
+// list.reverseLinkedList();
+list.findMiddleNode();
 // list.clearList();
