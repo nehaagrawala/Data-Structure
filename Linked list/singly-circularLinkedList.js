@@ -97,7 +97,7 @@ class LinkedList{
             return;
         }
         previousNode.next = previousNode.next.next;
-        return this.node;
+        return this.head;
     }
 
     getAt(index) {
