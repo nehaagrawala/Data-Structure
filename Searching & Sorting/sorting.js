@@ -41,5 +41,4 @@ const sorting = new Sorting();
 let array = [3,6,4,1,2,9,5];
 sorting.bubbleSort(array);
 sorting.selectionSort(array);
-sorting.InsertionSort(array);
 sorting.index("abcde");
